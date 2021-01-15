@@ -14,10 +14,6 @@ struct MorphView: View {
     
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 10)
-                .frame(width: animBegin ? 0 : 260, height: animBegin ? 0 : 70)
-                .foregroundColor(.black)
-            
             RoundedRectangle(cornerRadius: animBegin ? 30 : 10)
                 .frame(width: animBegin ? 60 : 250, height: 60)
                 .foregroundColor(animBegin ? .blue : .green)
@@ -27,6 +23,13 @@ struct MorphView: View {
                         .foregroundColor(.white)
                         .scaleEffect(circle ? 0.5 : 1.0)
                 )
+            
+            RoundedRectangle(cornerRadius: animBegin ? 40 : 20)
+                .trim(from: 0, to: animBegin ? 0 : 1)
+                .stroke(lineWidth: 8)
+                .frame(width: animBegin ? 80 : 270, height: 80)
+                .foregroundColor(animBegin ? .blue : .green)
+            
         }.onTapGesture {
             withAnimation(Animation.spring()){
                 self.animBegin.toggle()
