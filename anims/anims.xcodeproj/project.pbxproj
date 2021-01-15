@@ -13,6 +13,12 @@
 		B6F6157325B0A3060014243C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6F6157225B0A3060014243C /* Assets.xcassets */; };
 		B6F6157625B0A3060014243C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6F6157525B0A3060014243C /* Preview Assets.xcassets */; };
 		B6F6157925B0A3060014243C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6F6157725B0A3060014243C /* LaunchScreen.storyboard */; };
+		B6F6158225B0DD130014243C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6158125B0DD130014243C /* LoadingView.swift */; };
+		B6F6158525B0E2770014243C /* LoadingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6158425B0E2770014243C /* LoadingBarView.swift */; };
+		B6F6158825B0F5D60014243C /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6158725B0F5D60014243C /* ProgressView.swift */; };
+		B6F6158C25B0F9C80014243C /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6158B25B0F9C80014243C /* ProgressBarView.swift */; };
+		B6F6158F25B107E70014243C /* DotsLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6158E25B107E70014243C /* DotsLoadingView.swift */; };
+		B6F6159225B10C350014243C /* MorphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F6159125B10C350014243C /* MorphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		B6F6157525B0A3060014243C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B6F6157825B0A3060014243C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6F6157A25B0A3060014243C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6F6158125B0DD130014243C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B6F6158425B0E2770014243C /* LoadingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingBarView.swift; sourceTree = "<group>"; };
+		B6F6158725B0F5D60014243C /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		B6F6158B25B0F9C80014243C /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		B6F6158E25B107E70014243C /* DotsLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsLoadingView.swift; sourceTree = "<group>"; };
+		B6F6159125B10C350014243C /* MorphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +75,12 @@
 				B6F6157725B0A3060014243C /* LaunchScreen.storyboard */,
 				B6F6157A25B0A3060014243C /* Info.plist */,
 				B6F6157425B0A3060014243C /* Preview Content */,
+				B6F6158125B0DD130014243C /* LoadingView.swift */,
+				B6F6158425B0E2770014243C /* LoadingBarView.swift */,
+				B6F6158725B0F5D60014243C /* ProgressView.swift */,
+				B6F6158B25B0F9C80014243C /* ProgressBarView.swift */,
+				B6F6158E25B107E70014243C /* DotsLoadingView.swift */,
+				B6F6159125B10C350014243C /* MorphView.swift */,
 			);
 			path = anims;
 			sourceTree = "<group>";
@@ -145,9 +163,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F6158825B0F5D60014243C /* ProgressView.swift in Sources */,
 				B6F6156D25B0A3050014243C /* AppDelegate.swift in Sources */,
+				B6F6158225B0DD130014243C /* LoadingView.swift in Sources */,
+				B6F6158F25B107E70014243C /* DotsLoadingView.swift in Sources */,
+				B6F6158525B0E2770014243C /* LoadingBarView.swift in Sources */,
+				B6F6159225B10C350014243C /* MorphView.swift in Sources */,
 				B6F6156F25B0A3050014243C /* SceneDelegate.swift in Sources */,
 				B6F6157125B0A3050014243C /* ContentView.swift in Sources */,
+				B6F6158C25B0F9C80014243C /* ProgressBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
