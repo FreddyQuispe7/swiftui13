@@ -30,9 +30,12 @@ struct PilotosView: View {
     
     
     var body: some View {
-        List(pilotos){ piloto in
-            PilotosListaRow(piloto: piloto)
-            
+        NavigationView {
+            List(pilotos){ piloto in
+                PilotosListaRow(piloto: piloto)
+                
+            }
+            .navigationBarTitle("Lista de pilotos")
         }
     }
 }
@@ -48,7 +51,6 @@ struct Piloto: Identifiable {
     var id = UUID()
     var nombre: String
     var imagen: String
-    //var equipo: String
     var equipo: Equipo
 }
 

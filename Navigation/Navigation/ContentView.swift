@@ -10,25 +10,27 @@ import SwiftUI
 struct ContentView: View {
     
     var courses = [
-        Course(name: "Probabilidad para Machine Learning y Big Data con R y Python", image: "probabilidades"),
-        Course(name: "Machine Learning de A a la Z: R y Python para Data Science", image: "machine_learning", feature: true),
+        Course(name: "Aplica SQL al mundo del Data Science desde cero", image: "sql"),
+        Course(name: "Curso de Android con Kotlin: Intensivo y práctico desde cero", image: "kotlin", feature: true),
         Course(name: "Experto en Firebase para Android + MVP Curso Completo +30hrs", image: "android_firebase"),
+        Course(name: "Diseño de apps para iOS 13 con Swift UI desde cero", image: "swift", feature: true),
+        Course(name: "Curso completo de iOS 13 con Swift UI 5.2: de cero a experto", image: "swift2"),
         Course(name: "POO en C#: aplica conceptos de POO en C# en proyectos reales", image: "csharp", feature: true),
-        Course(name: "Curso de Android con Kotlin: Intensivo y práctico desde cero", image: "kotlin"),
-        Course(name: "Aplica SQL al mundo del Data Science desde cero", image: "sql", feature: true),
-        Course(name: "Diseño de apps para iOS 13 con Swift UI desde cero", image: "swift"),
-        Course(name: "Curso completo de iOS 13 con Swift UI 5.2: de cero a experto", image: "swift2", feature: true),
-        Course(name: "Curso completo de Unity 2020: domina el mundo de videojuegos", image: "unity")
+        Course(name: "Curso completo de Unity 2020: domina el mundo de videojuegos", image: "unity"),
+        Course(name: "Probabilidad para Machine Learning y Big Data con R y Python", image: "probabilidades", feature: true),
+        Course(name: "Machine Learning de A a la Z: R y Python para Data Science", image: "machine_learning")
         ]
     
     var body: some View {
-        List(courses.indices) { index in
-            if courses[index].feature {
-                CourseFullImageRow(course: self.courses[index])
-            } else {
-                CourseRoundImageRow(course: self.courses[index])
+        NavigationView {
+            List(courses.indices) { index in
+                if courses[index].feature {
+                    CourseFullImageRow(course: self.courses[index])
+                } else {
+                    CourseRoundImageRow(course: self.courses[index])
+                }
             }
-            
+            .navigationBarTitle("Cursos online de JB")
         }
     }
 }

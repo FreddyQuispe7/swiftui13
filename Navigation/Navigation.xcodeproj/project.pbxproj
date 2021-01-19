@@ -15,6 +15,7 @@
 		B69E139B25B63FA200783B79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69E139925B63FA200783B79 /* LaunchScreen.storyboard */; };
 		B69E13A525B6403C00783B79 /* CamisetasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E13A325B6403C00783B79 /* CamisetasView.swift */; };
 		B69E13A625B6403C00783B79 /* PilotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E13A425B6403C00783B79 /* PilotosView.swift */; };
+		B69E13A925B660C400783B79 /* DetailCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E13A825B660C400783B79 /* DetailCourseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B69E139C25B63FA200783B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B69E13A325B6403C00783B79 /* CamisetasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CamisetasView.swift; path = ../../Lists/Lists/CamisetasView.swift; sourceTree = "<group>"; };
 		B69E13A425B6403C00783B79 /* PilotosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PilotosView.swift; path = ../../Lists/Lists/PilotosView.swift; sourceTree = "<group>"; };
+		B69E13A825B660C400783B79 /* DetailCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCourseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +68,10 @@
 				B69E139425B63FA200783B79 /* Assets.xcassets */,
 				B69E139925B63FA200783B79 /* LaunchScreen.storyboard */,
 				B69E139C25B63FA200783B79 /* Info.plist */,
+				B69E139625B63FA200783B79 /* Preview Content */,
 				B69E13A325B6403C00783B79 /* CamisetasView.swift */,
 				B69E13A425B6403C00783B79 /* PilotosView.swift */,
-				B69E139625B63FA200783B79 /* Preview Content */,
+				B69E13A825B660C400783B79 /* DetailCourseView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				B69E13A625B6403C00783B79 /* PilotosView.swift in Sources */,
 				B69E139125B63FA100783B79 /* SceneDelegate.swift in Sources */,
 				B69E139325B63FA100783B79 /* ContentView.swift in Sources */,
+				B69E13A925B660C400783B79 /* DetailCourseView.swift in Sources */,
 				B69E13A525B6403C00783B79 /* CamisetasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

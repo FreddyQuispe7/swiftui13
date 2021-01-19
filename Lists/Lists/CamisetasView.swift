@@ -24,12 +24,15 @@ struct CamisetasView: View {
         ]
     
     var body: some View {
-        List(camisetas.indices) { index in
-            if self.camisetas[index].destacado {
-                CamisetaImagenRow(camiseta: self.camisetas[index])
-            } else {
-                CamisetaListaRow(camiseta: self.camisetas[index])
+        NavigationView {
+            List(camisetas.indices) { index in
+                if self.camisetas[index].destacado {
+                    CamisetaImagenRow(camiseta: self.camisetas[index])
+                } else {
+                    CamisetaListaRow(camiseta: self.camisetas[index])
+                }
             }
+            .navigationBarTitle("Lista de camisetas")
         }
     }
 }
