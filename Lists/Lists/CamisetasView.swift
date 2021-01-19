@@ -23,13 +23,40 @@ struct CamisetasView: View {
         Camiseta(nombre: "Manchester City alterna 1", descripcion: "Camiseta de visitante 1 de Manchester City, temporada 2020/2021", imagen: "ManchesterCity2", destacado:true)
         ]
     
+    /*
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.largeTitleTextAttributes = [
+            .font: UIFont(name: "Bradley Hand", size: 32)!,
+            .foregroundColor: UIColor.systemRed
+        ]
+        appearance.titleTextAttributes = [
+            .font: UIFont(name: "Bradley Hand", size: 24)!,
+            .foregroundColor: UIColor.systemRed
+        ]
+        appearance.setBackIndicatorImage(UIImage(systemName: "arrow.backward"), transitionMaskImage: UIImage(systemName: "arrow.backward"))
+        UINavigationBar.appearance().tintColor = .systemRed
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
+    */
+    
     var body: some View {
         NavigationView {
             List(camisetas.indices) { index in
-                if self.camisetas[index].destacado {
-                    CamisetaImagenRow(camiseta: self.camisetas[index])
-                } else {
-                    CamisetaListaRow(camiseta: self.camisetas[index])
+                ZStack{
+                    if self.camisetas[index].destacado {
+                        CamisetaImagenRow(camiseta: self.camisetas[index])
+                    } else {
+                        CamisetaListaRow(camiseta: self.camisetas[index])
+                    }
+                    
+                    NavigationLink(destination: DetalleCamisetaView(camiseta: self.camisetas[index])) {
+                        EmptyView()
+                    }
+                    .frame(width:0)
                 }
             }
             .navigationBarTitle("Lista de camisetas")
@@ -80,7 +107,6 @@ struct CamisetaImagenRow: View {
             Image(camiseta.imagen)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: .infinity)
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 15)

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B64C4E2825B726E40078623C /* DetalleCamisetaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64C4E2725B726E40078623C /* DetalleCamisetaView.swift */; };
+		B64C4E2F25B727030078623C /* DetallePilotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64C4E2E25B727030078623C /* DetallePilotoView.swift */; };
+		B66F9E9325B75DBF00AE37E9 /* CourseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66F9E9225B75DBF00AE37E9 /* CourseRowView.swift */; };
+		B66F9E9B25B7605D00AE37E9 /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66F9E9A25B7605D00AE37E9 /* CourseView.swift */; };
+		B66F9E9F25B7639400AE37E9 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66F9E9E25B7639400AE37E9 /* CourseDetailView.swift */; };
 		B69E138F25B63FA100783B79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E138E25B63FA100783B79 /* AppDelegate.swift */; };
 		B69E139125B63FA100783B79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E139025B63FA100783B79 /* SceneDelegate.swift */; };
 		B69E139325B63FA100783B79 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E139225B63FA100783B79 /* ContentView.swift */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B64C4E2725B726E40078623C /* DetalleCamisetaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalleCamisetaView.swift; sourceTree = "<group>"; };
+		B64C4E2E25B727030078623C /* DetallePilotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallePilotoView.swift; sourceTree = "<group>"; };
+		B66F9E9225B75DBF00AE37E9 /* CourseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRowView.swift; sourceTree = "<group>"; };
+		B66F9E9A25B7605D00AE37E9 /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		B66F9E9E25B7639400AE37E9 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
 		B69E138B25B63FA100783B79 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69E138E25B63FA100783B79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B69E139025B63FA100783B79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,14 +74,19 @@
 			children = (
 				B69E138E25B63FA100783B79 /* AppDelegate.swift */,
 				B69E139025B63FA100783B79 /* SceneDelegate.swift */,
-				B69E139225B63FA100783B79 /* ContentView.swift */,
 				B69E139425B63FA200783B79 /* Assets.xcassets */,
 				B69E139925B63FA200783B79 /* LaunchScreen.storyboard */,
 				B69E139C25B63FA200783B79 /* Info.plist */,
 				B69E139625B63FA200783B79 /* Preview Content */,
+				B69E139225B63FA100783B79 /* ContentView.swift */,
 				B69E13A325B6403C00783B79 /* CamisetasView.swift */,
 				B69E13A425B6403C00783B79 /* PilotosView.swift */,
 				B69E13A825B660C400783B79 /* DetailCourseView.swift */,
+				B64C4E2725B726E40078623C /* DetalleCamisetaView.swift */,
+				B64C4E2E25B727030078623C /* DetallePilotoView.swift */,
+				B66F9E9A25B7605D00AE37E9 /* CourseView.swift */,
+				B66F9E9225B75DBF00AE37E9 /* CourseRowView.swift */,
+				B66F9E9E25B7639400AE37E9 /* CourseDetailView.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -155,11 +170,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B69E138F25B63FA100783B79 /* AppDelegate.swift in Sources */,
+				B64C4E2825B726E40078623C /* DetalleCamisetaView.swift in Sources */,
 				B69E13A625B6403C00783B79 /* PilotosView.swift in Sources */,
 				B69E139125B63FA100783B79 /* SceneDelegate.swift in Sources */,
 				B69E139325B63FA100783B79 /* ContentView.swift in Sources */,
 				B69E13A925B660C400783B79 /* DetailCourseView.swift in Sources */,
 				B69E13A525B6403C00783B79 /* CamisetasView.swift in Sources */,
+				B66F9E9B25B7605D00AE37E9 /* CourseView.swift in Sources */,
+				B66F9E9F25B7639400AE37E9 /* CourseDetailView.swift in Sources */,
+				B66F9E9325B75DBF00AE37E9 /* CourseRowView.swift in Sources */,
+				B64C4E2F25B727030078623C /* DetallePilotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

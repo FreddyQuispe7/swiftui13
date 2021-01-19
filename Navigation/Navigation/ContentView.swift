@@ -20,24 +20,53 @@ struct ContentView: View {
         Course(name: "Probabilidad para Machine Learning y Big Data con R y Python", image: "probabilidades", feature: true),
         Course(name: "Machine Learning de A a la Z: R y Python para Data Science", image: "machine_learning")
         ]
+    /*
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.largeTitleTextAttributes = [
+            .font: UIFont(name: "Times New Roman", size: 32)!,
+            .foregroundColor: UIColor.systemPurple
+        ]
+        appearance.titleTextAttributes = [
+            .font: UIFont(name: "Times New Roman", size: 24)!,
+            .foregroundColor: UIColor.systemPurple
+        ]
+        appearance.setBackIndicatorImage(UIImage(systemName: "arrow.left.circle.fill"), transitionMaskImage: UIImage(systemName: "arrow.left.circle"))
+        UINavigationBar.appearance().tintColor = .systemPurple
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
+    */
     
     var body: some View {
         NavigationView {
             List(courses.indices) { index in
-                if courses[index].feature {
-                    CourseFullImageRow(course: self.courses[index])
-                } else {
-                    CourseRoundImageRow(course: self.courses[index])
+                ZStack{
+                    if self.courses[index].feature {
+                        CourseFullImageRow(course: self.courses[index])
+                    } else {
+                        CourseRoundImageRow(course: self.courses[index])
+                    }
+                    
+                    NavigationLink(destination: DetailCourseView(course: self.courses[index])) {
+                        EmptyView()
+                    }
+                    .frame(width: 0)
                 }
             }
-            .navigationBarTitle("Cursos online de JB")
+            .navigationBarTitle("Cursos online de JB", displayMode: .automatic)
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+            ContentView()
+        }
     }
 }
 
@@ -60,6 +89,7 @@ struct CourseRoundImageRow: View {
                 .clipped()
                 .cornerRadius(30)
             Text(course.name)
+                .frame(width:300)
         }
     }
 }

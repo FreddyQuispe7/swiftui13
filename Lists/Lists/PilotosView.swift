@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-let mercedes = Equipo(color: Color(red: 79.0/255.0, green: 164.0/255.0, blue: 161.0/255.0), imagen: "car_mercedes")
-let ferrari = Equipo(color: Color(red: 231.0/255.0, green: 50.0/255.0, blue: 40.0/255.0), imagen: "car_ferrari")
-let redbull = Equipo(color: Color(red: 34.0/255.0, green: 44.0/255.0, blue: 54.0/255.0), imagen: "car_redbull")
-let renault = Equipo(color: Color(red: 240.0/255.0, green: 238.0/255.0, blue: 95.0/255.0), imagen: "car_renault")
-let mclaren = Equipo(color: Color(red: 240.0/255.0, green: 172.0/255.0, blue: 61.0/255.0), imagen: "car_mclaren")
+let mercedes = Equipo(color: Color(red: 79.0/255.0, green: 164.0/255.0, blue: 161.0/255.0), nombre: "Mercedes", imagen: "car_mercedes")
+let ferrari = Equipo(color: Color(red: 231.0/255.0, green: 50.0/255.0, blue: 40.0/255.0), nombre: "Ferrari", imagen: "car_ferrari")
+let redbull = Equipo(color: Color(red: 34.0/255.0, green: 44.0/255.0, blue: 54.0/255.0), nombre: "Red Bull", imagen: "car_redbull")
+let renault = Equipo(color: Color(red: 240.0/255.0, green: 238.0/255.0, blue: 95.0/255.0), nombre: "Renault", imagen: "car_renault")
+let mclaren = Equipo(color: Color(red: 240.0/255.0, green: 172.0/255.0, blue: 61.0/255.0), nombre: "Mc Laren", imagen: "car_mclaren")
 
 struct PilotosView: View {
 
@@ -28,12 +28,32 @@ struct PilotosView: View {
         Piloto(nombre: "Julen Norris", imagen: "norris", equipo: mclaren)
         ]
     
+    /*
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.largeTitleTextAttributes = [
+            .font: UIFont(name: "Verdana", size: 32)!,
+            .foregroundColor: UIColor.systemGreen
+        ]
+        appearance.titleTextAttributes = [
+            .font: UIFont(name: "Verdana", size: 24)!,
+            .foregroundColor: UIColor.systemGreen
+        ]
+        appearance.setBackIndicatorImage(UIImage(systemName: "arrowshape.turn.up.left.fill"), transitionMaskImage: UIImage(systemName: "arrowshape.turn.up.left.fill"))
+        UINavigationBar.appearance().tintColor = .systemGreen
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
+    */
     
     var body: some View {
         NavigationView {
             List(pilotos){ piloto in
-                PilotosListaRow(piloto: piloto)
-                
+                NavigationLink(destination: DetallePilotoView(piloto: piloto)) {
+                    PilotosListaRow(piloto: piloto)
+                }
             }
             .navigationBarTitle("Lista de pilotos")
         }
@@ -56,6 +76,7 @@ struct Piloto: Identifiable {
 
 struct Equipo {
     var color: Color
+    var nombre: String
     var imagen: String
 }
 
@@ -76,7 +97,16 @@ struct PilotosListaRow: View {
                         .foregroundColor(.gray)
                         .opacity(0.2)
                 )
-            Text(piloto.nombre)
+            VStack(alignment:.leading) {
+                Spacer()
+                Text(piloto.nombre)
+                    .font(.system(.title2, design: .rounded))
+                Spacer()
+                Text(piloto.equipo.nombre)
+                    .font(.system(.title3, design: .rounded))
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
         }
     }
 }
