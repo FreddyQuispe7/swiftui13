@@ -15,7 +15,7 @@ struct DetalleCamisetaView: View {
     var body: some View {
         VStack{
             Rectangle()
-                .frame(width: .infinity, height:32)
+                .frame(height: 30)
                 .foregroundColor(.gray)
                 .opacity(0.20)
             
@@ -32,11 +32,13 @@ struct DetalleCamisetaView: View {
             Text(camiseta.nombre)
                 .font(.system(.title, design: .rounded))
                 .fontWeight(.black)
+                .frame(width: 380, alignment: .leading)
+                .foregroundColor(Color(.darkGray))
                 .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
             
             Text(camiseta.descripcion)
-                .font(.system(.headline, design: .rounded))
-                .multilineTextAlignment(.center)
+                .font(.system(.title3, design: .rounded))
+                .frame(width: 380, alignment: .leading)
                 .foregroundColor(.secondary)
                 .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
             

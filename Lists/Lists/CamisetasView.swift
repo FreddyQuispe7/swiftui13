@@ -23,44 +23,25 @@ struct CamisetasView: View {
         Camiseta(nombre: "Manchester City alterna 1", descripcion: "Camiseta de visitante 1 de Manchester City, temporada 2020/2021", imagen: "ManchesterCity2", destacado:true)
         ]
     
-    /*
-    init() {
-        let appearance = UINavigationBarAppearance()
-        appearance.largeTitleTextAttributes = [
-            .font: UIFont(name: "Bradley Hand", size: 32)!,
-            .foregroundColor: UIColor.systemRed
-        ]
-        appearance.titleTextAttributes = [
-            .font: UIFont(name: "Bradley Hand", size: 24)!,
-            .foregroundColor: UIColor.systemRed
-        ]
-        appearance.setBackIndicatorImage(UIImage(systemName: "arrow.backward"), transitionMaskImage: UIImage(systemName: "arrow.backward"))
-        UINavigationBar.appearance().tintColor = .systemRed
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
-    */
-    
     var body: some View {
-        NavigationView {
+        //NavigationView {
             List(camisetas.indices) { index in
                 ZStack{
                     if self.camisetas[index].destacado {
-                        CamisetaImagenRow(camiseta: self.camisetas[index])
-                    } else {
                         CamisetaListaRow(camiseta: self.camisetas[index])
+                    } else {
+                        CamisetaImagenRow(camiseta: self.camisetas[index])
                     }
                     
                     NavigationLink(destination: DetalleCamisetaView(camiseta: self.camisetas[index])) {
                         EmptyView()
                     }
                     .frame(width:0)
+                    .opacity(0)
                 }
             }
             .navigationBarTitle("Lista de camisetas")
-        }
+        //}
     }
 }
 
@@ -86,13 +67,18 @@ struct CamisetaListaRow: View {
             Image(camiseta.imagen)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 80, height: 80)
+                .frame(width: 120, height: 120)
+            
             VStack(alignment:.leading) {
                 Text(camiseta.nombre)
-                    .font(.headline)
+                    .font(.title3)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color(.darkGray))
+
                 Text(camiseta.descripcion)
-                    .font(.subheadline)
+                    .font(.headline)
                     .foregroundColor(.secondary)
+                
                 Spacer()
             }
         }
@@ -103,26 +89,25 @@ struct CamisetaImagenRow: View {
     var camiseta: Camiseta
     
     var body: some View {
-        ZStack {
+        HStack {
+            VStack(alignment:.leading) {
+                Text(camiseta.nombre)
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color(.darkGray))
+                Text(camiseta.descripcion)
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+                Spacer()
+            }
+            .frame(width: 240, alignment: .leading)
+            .padding(.top, 10)
+            
             Image(camiseta.imagen)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(.gray)
-                        .opacity(0.20)
-                )
-
-            VStack(alignment:.leading) {
-                Spacer()
-                Text(camiseta.nombre)
-                    .font(.headline)
-                Text(camiseta.descripcion)
-                    .font(.subheadline)
-                    .foregroundColor(Color(.darkGray))
-            }
-            .padding(.vertical)
+                .frame(width: 120, alignment: .trailing)
+                .clipped()
         }
     }
 }

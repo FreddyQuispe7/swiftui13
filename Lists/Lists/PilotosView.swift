@@ -28,35 +28,15 @@ struct PilotosView: View {
         Piloto(nombre: "Julen Norris", imagen: "norris", equipo: mclaren)
         ]
     
-    /*
-    init() {
-        let appearance = UINavigationBarAppearance()
-        appearance.largeTitleTextAttributes = [
-            .font: UIFont(name: "Verdana", size: 32)!,
-            .foregroundColor: UIColor.systemGreen
-        ]
-        appearance.titleTextAttributes = [
-            .font: UIFont(name: "Verdana", size: 24)!,
-            .foregroundColor: UIColor.systemGreen
-        ]
-        appearance.setBackIndicatorImage(UIImage(systemName: "arrowshape.turn.up.left.fill"), transitionMaskImage: UIImage(systemName: "arrowshape.turn.up.left.fill"))
-        UINavigationBar.appearance().tintColor = .systemGreen
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
-    */
-    
     var body: some View {
-        NavigationView {
+        //NavigationView {
             List(pilotos){ piloto in
                 NavigationLink(destination: DetallePilotoView(piloto: piloto)) {
                     PilotosListaRow(piloto: piloto)
                 }
             }
             .navigationBarTitle("Lista de pilotos")
-        }
+        //}
     }
 }
 
@@ -97,6 +77,7 @@ struct PilotosListaRow: View {
                         .foregroundColor(.gray)
                         .opacity(0.2)
                 )
+            
             VStack(alignment:.leading) {
                 Spacer()
                 Text(piloto.nombre)

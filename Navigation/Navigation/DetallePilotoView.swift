@@ -18,6 +18,7 @@ struct DetallePilotoView: View {
                 Image(piloto.imagen)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .padding(.top, 20)
                     .clipped()
                     .background(piloto.equipo.color)
                 
@@ -26,24 +27,27 @@ struct DetallePilotoView: View {
                     .fontWeight(.heavy)
                     .foregroundColor(.white)
                     .frame(width: 145)
-                    .offset(x: -120, y: -50)
+                    .offset(x: -120, y: -40)
                     .multilineTextAlignment(.center)
                     .lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
             }
 
-            ZStack {
+            ZStack(alignment: .topLeading) {
                 Image(piloto.equipo.imagen)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width:250)
-                    .clipped()
-                    .cornerRadius(20)
-                    .offset(x: -70, y: -10)
+                    .cornerRadius(10)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(lineWidth: 2)
+                            .foregroundColor(piloto.equipo.color)
+                    )
                 
                 Text(piloto.equipo.nombre)
-                    .font(.system(.title3, design: .rounded))
-                    .offset(x: -140, y: -40)
-                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                    .font(.system(.title2, design: .rounded))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(piloto.equipo.color)
+                    .padding()
             }
             .padding()
             

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CourseView: View {
+struct CoursesView: View {
     var courses = [
         CourseUdemy(title: "Diseño de apps para iOS 13 con Swift UI desde cero", author: "Juan Gabriel Gomila", image: "swift", originalPrice: "199.99$", discountPrice: "10.99$"),
         CourseUdemy(title: "Curso de Andorid con Kotlin: Intensivo y práctico desde cero", author: "Juan Gomila, Alain Nicolas", image: "kotlin", originalPrice: "129.99$", discountPrice: "11.99$"),
@@ -18,29 +18,8 @@ struct CourseView: View {
         CourseUdemy(title: "Curso completo de Unity 2020: domina el mundo de videojuegos", author: "Juan Gabriel Gomila", image: "unity", originalPrice: "129.99$", discountPrice: "11.99$")
         ]
     
-    /*
-    init() {
-        let appearance = UINavigationBarAppearance()
-        appearance.largeTitleTextAttributes = [
-            .font: UIFont(name: "PingFang SC", size: 32)!,
-            .foregroundColor: UIColor.systemGray
-        ]
-        appearance.titleTextAttributes = [
-            .font: UIFont(name: "PingFang SC", size: 24)!,
-            .foregroundColor: UIColor.systemGray
-        ]
-        appearance.setBackIndicatorImage(UIImage(systemName: "arrow.left"), transitionMaskImage: UIImage(systemName: "arrow.left"))
-        UINavigationBar.appearance().tintColor = .systemGray
-        
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().compactAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-    }
-    */
-    
     var body: some View {
-
-        NavigationView {
+        //NavigationView {
             List(courses){ course in
                 ZStack {
                     CourseRowView(course: course)
@@ -48,15 +27,16 @@ struct CourseView: View {
                         EmptyView()
                     }
                     .frame(width: 0)
+                    .opacity(0)
                 }
             }
             .navigationBarTitle("Cursos de Juan Gomila")
-        }
+        //}
     }
 }
 
-struct CourseView_Previews: PreviewProvider {
+struct CoursesView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseView()
+        CoursesView()
     }
 }
