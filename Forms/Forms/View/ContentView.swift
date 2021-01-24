@@ -91,6 +91,18 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("Cursos online de JB", displayMode: .automatic)
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.showSettingsView = true
+                }, label: {
+                    Image(systemName: "line.horizontal.3.decrease.circle")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .foregroundColor(.gray)
+                })
+            )
+            .sheet(isPresented: $showSettingsView) {
+                SettingsView()
+            }
         }
     }
     
