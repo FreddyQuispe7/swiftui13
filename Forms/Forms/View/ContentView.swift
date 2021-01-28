@@ -24,10 +24,14 @@ struct ContentView: View {
     
     @State private var showSettingsView: Bool = false
     
+    @EnvironmentObject var settings: SettingsFactory
+    
     var body: some View {
         NavigationView {
             List{
-                ForEach(courses) { course in
+                ForEach(courses
+                    .filter(shouldShowCourse)
+                            .sorted(by: self.settings.order.predicateSort())){ course in
                     ZStack{
                         CourseRoundImageRow(course: course)
                             .contextMenu{
@@ -101,7 +105,7 @@ struct ContentView: View {
                 })
             )
             .sheet(isPresented: $showSettingsView) {
-                SettingsView()
+                SettingsView().environmentObject(self.settings)
             }
         }
     }
@@ -123,11 +127,17 @@ struct ContentView: View {
             self.courses.remove(at: idx)
         }
     }
+    
+    private func shouldShowCourse(course: Course) -> Bool {
+        let checkPurchased = (self.settings.showPurchasedOnly && course.purchased) || !self.settings.showPurchasedOnly
+        let checkPrice = course.priceLevel <= self.settings.maxPrice
+        return checkPurchased && checkPrice
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(SettingsFactory())
     }
 }
 

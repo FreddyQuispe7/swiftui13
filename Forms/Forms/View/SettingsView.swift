@@ -9,14 +9,9 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    private var sortingOrders = [
-        "Alfabeticamente",
-        "Los favoritos al inicio",
-        "Los comprados al inicio"
-    ]
+    @EnvironmentObject var settings: SettingsFactory
     
-    @Environment(\.presentationMode) var presentationMode
-    @State private var selectedOrder = 0
+    @State private var selectedOrder = SortingOrderType.alphabetical
     @State private var showPurchasedOnly = false
     @State private var maxPrice = 5 {
         didSet{
@@ -29,13 +24,15 @@ struct SettingsView: View {
         }
     }
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         NavigationView{
             Form {
                 Section(header: Text("ORDENA LOS CURSOS")){
                     Picker(selection: $selectedOrder, label: Text("Orden de los cursos")){
-                        ForEach(0..<sortingOrders.count, id: \.self){
-                            Text(self.sortingOrders[$0])
+                        ForEach(SortingOrderType.allCases, id: \.self){ orderType in
+                            Text(orderType.description)
                         }
                     }
                 }
@@ -58,7 +55,7 @@ struct SettingsView: View {
             .navigationBarItems(
                 leading:
                     Button(action: {
-                        presentationMode.wrappedValue.dismiss()
+                        self.presentationMode.wrappedValue.dismiss()
                     }){
                         Image(systemName: "arrowtriangle.down.circle")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -66,7 +63,11 @@ struct SettingsView: View {
                     },
                 trailing:
                     Button(action: {
-                        presentationMode.wrappedValue.dismiss()
+                        self.settings.order = self.selectedOrder
+                        self.settings.showPurchasedOnly = self.showPurchasedOnly
+                        self.settings.maxPrice = self.maxPrice
+                        
+                        self.presentationMode.wrappedValue.dismiss()
                     }){
                         Image(systemName: "checkmark.circle.fill")
                             .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
@@ -74,11 +75,16 @@ struct SettingsView: View {
                     }
             )
         }
+        .onAppear() {
+            self.selectedOrder = self.settings.order
+            self.showPurchasedOnly = self.settings.showPurchasedOnly
+            self.maxPrice = self.settings.maxPrice
+        }
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView().environmentObject(SettingsFactory())
     }
 }
