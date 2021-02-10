@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B69827A525D44CDC0029C3F9 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69827A425D44CDC0029C3F9 /* RegistrationViewModel.swift */; };
 		B6DB1D6E25C262FA005435CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB1D6D25C262FA005435CE /* AppDelegate.swift */; };
 		B6DB1D7025C262FA005435CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB1D6F25C262FA005435CE /* SceneDelegate.swift */; };
 		B6DB1D7225C262FA005435CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DB1D7125C262FA005435CE /* ContentView.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B69827A425D44CDC0029C3F9 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		B6DB1D6A25C262FA005435CE /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DB1D6D25C262FA005435CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DB1D6F25C262FA005435CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				B6DB1D6D25C262FA005435CE /* AppDelegate.swift */,
 				B6DB1D6F25C262FA005435CE /* SceneDelegate.swift */,
 				B6DB1D7125C262FA005435CE /* ContentView.swift */,
+				B69827A425D44CDC0029C3F9 /* RegistrationViewModel.swift */,
 				B6DB1D7325C262FC005435CE /* Assets.xcassets */,
 				B6DB1D7825C262FC005435CE /* LaunchScreen.storyboard */,
 				B6DB1D7B25C262FC005435CE /* Info.plist */,
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B69827A525D44CDC0029C3F9 /* RegistrationViewModel.swift in Sources */,
 				B6DB1D6E25C262FA005435CE /* AppDelegate.swift in Sources */,
 				B6DB1D7025C262FA005435CE /* SceneDelegate.swift in Sources */,
 				B6FC6F5125D2C9C000458356 /* LoginView.swift in Sources */,

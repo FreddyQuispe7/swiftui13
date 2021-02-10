@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var username = ""
+    //@State private var username = ""
     @State private var password = ""
     @State private var confirmPassword = ""
+    
+    @ObservedObject private var registrationVM = RegistrationViewModel()
     
     var body: some View {
         VStack {
@@ -20,19 +22,31 @@ struct ContentView: View {
                 .bold()
                 .padding(.bottom, 50)
             
-            SingleFormView(fieldName: "Nombre de usuario", fiedlValue: $username)
-            ValidationFormView(formText: "Minimo 6 caracteres", conditionChecked: false)
+            SingleFormView(fieldName: "Nombre de usuario", fiedlValue: $registrationVM.username)
+            ValidationFormView( iconName: registrationVM.usernameLengthValid ? "checkmark.circle" : "xmark.circle",
+                                iconColor: registrationVM.usernameLengthValid ? Color.green : Color.red,
+                               formText: "Minimo 6 caracteres",
+                               conditionChecked: registrationVM.usernameLengthValid)
                 .padding()
             
-            SingleFormView(fieldName: "Contraseña", fiedlValue: $password, isProtected: true)
+            SingleFormView(fieldName: "Contraseña", fiedlValue: $registrationVM.password, isProtected: true)
             VStack{
-                ValidationFormView(formText: "Mínimo 8 caracteres")
-                ValidationFormView(formText: "Una mayúscula y una minúscula", conditionChecked: false)
+                ValidationFormView( iconName: registrationVM.passwordLengthValid ? "checkmark.circle" : "xmark.circle",
+                                    iconColor: registrationVM.passwordLengthValid ? Color.green : Color.red,
+                                    formText: "Mínimo 8 caracteres",
+                                    conditionChecked: registrationVM.passwordLengthValid)
+                ValidationFormView( iconName: registrationVM.passwordCapitalLetter ? "checkmark.circle" : "xmark.circle",
+                                    iconColor: registrationVM.passwordCapitalLetter ? Color.green : Color.red,
+                                    formText: "Una mayúscula y una minúscula",
+                                    conditionChecked: registrationVM.passwordCapitalLetter)
             }
             .padding()
             
-            SingleFormView(fieldName: "Confirmar Contraseña", fiedlValue: $confirmPassword, isProtected: true)
-            ValidationFormView(formText: "Las dos contraseñas deben ser iguales", conditionChecked: false)
+            SingleFormView(fieldName: "Confirmar Contraseña", fiedlValue: $registrationVM.confirmPassword, isProtected: true)
+            ValidationFormView( iconName: registrationVM.passwordsMatch ? "checkmark.circle" : "xmark.circle",
+                                iconColor: registrationVM.passwordsMatch ? Color.green : Color.red,
+                                formText: "Las dos contraseñas deben ser iguales",
+                                conditionChecked: registrationVM.passwordsMatch)
                 .padding()
                 .padding(.bottom, 30)
             
