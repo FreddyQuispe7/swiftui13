@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    //@State private var username = ""
+    @State private var username = ""
     @State private var password = ""
     @State private var confirmPassword = ""
     
@@ -22,14 +22,14 @@ struct ContentView: View {
                 .bold()
                 .padding(.bottom, 50)
             
-            SingleFormView(fieldName: "Nombre de usuario", fiedlValue: $registrationVM.username)
+            SingleFormView(fieldName: "Nombre de usuario", fieldValue: $registrationVM.username)
             ValidationFormView( iconName: registrationVM.usernameLengthValid ? "checkmark.circle" : "xmark.circle",
                                 iconColor: registrationVM.usernameLengthValid ? Color.green : Color.red,
                                formText: "Minimo 6 caracteres",
                                conditionChecked: registrationVM.usernameLengthValid)
                 .padding()
             
-            SingleFormView(fieldName: "Contraseña", fiedlValue: $registrationVM.password, isProtected: true)
+            SingleFormView(fieldName: "Contraseña", fieldValue: $registrationVM.password, isProtected: true)
             VStack{
                 ValidationFormView( iconName: registrationVM.passwordLengthValid ? "checkmark.circle" : "xmark.circle",
                                     iconColor: registrationVM.passwordLengthValid ? Color.green : Color.red,
@@ -42,7 +42,7 @@ struct ContentView: View {
             }
             .padding()
             
-            SingleFormView(fieldName: "Confirmar Contraseña", fiedlValue: $registrationVM.confirmPassword, isProtected: true)
+            SingleFormView(fieldName: "Confirmar Contraseña", fieldValue: $registrationVM.confirmPassword, isProtected: true)
             ValidationFormView( iconName: registrationVM.passwordsMatch ? "checkmark.circle" : "xmark.circle",
                                 iconColor: registrationVM.passwordsMatch ? Color.green : Color.red,
                                 formText: "Las dos contraseñas deben ser iguales",
@@ -110,17 +110,17 @@ struct ContentView_Previews: PreviewProvider {
 struct SingleFormView: View {
     
     var fieldName = ""
-    @Binding var fiedlValue: String
+    @Binding var fieldValue: String
     var isProtected = false
     
     var body: some View{
         VStack{
             if isProtected {
-                SecureField(fieldName, text: $fiedlValue)
+                SecureField(fieldName, text: $fieldValue)
                     .font(.system(size: 18, weight: .bold, design: .rounded))
                     .padding(.horizontal)
             } else {
-                TextField(fieldName, text: $fiedlValue)
+                TextField(fieldName, text: $fieldValue)
                     .font(.system(size: 18, weight: .bold, design: .rounded))
                     .padding(.horizontal)
             }
